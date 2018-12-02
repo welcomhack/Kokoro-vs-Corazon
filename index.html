@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <style>
+        body{
+            padding: 0;
+            margin: 0;
+            font-family: sans-serif;
+            background: #292929;
+        }
+        .programing{
+            position: absolute;
+            font-size: 160px;
+            top: 190px;
+            left: 50%;
+            transform: translate(-50%,-50%);
+            text-align: center;
+            display: none;
+        }
+        img{
+            display: block;
+            border-radius: 5px;
+        }
+        .corazon{
+            position: absolute;
+            width: 100px;
+            height: 100px;
+            background: rgb(255, 0, 0);
+            top: 150px;
+            left: 43%;
+            transform: translate(-50%);
+            transform: rotate(45deg);
+            animation: palpit 1s infinite alternate;
+            box-shadow: 0 0 10px;
+        
+        }
+         @keyframes palpit{
+             to{
+                 transform: rotate(45deg) scale(1.4);
+             }
+         }
+         .corazon::after,
+         .corazon::before{
+            content: "";
+            position: relative;
+            width: 100px;
+            height: 100px;
+            background: rgb(255, 0, 0);
+            display: block;
+             
+         }
+        .corazon::before{
+            left: -60px;
+            border-radius: 50px 0 0 50px;
+            
+
+        }
+        .corazon::after{
+            top: -160px;
+            border-radius: 50px 50px 0 0;
+
+        }
+            
+        .center{
+            position: absolute;
+            top: 75%;
+            left: 50%;
+            transform: translate(-50%);
+        }
+        input[type="checkbox"]{
+            position: relative;
+            width: 300px;
+            height: 100px;
+            -webkit-appearance: none;
+            background-image: linear-gradient( 0deg, rgb(255, 0, 0), rgb(14, 0, 0));
+            outline: none;
+            border-radius: 50px;
+            box-shadow: 0 0 0 5px #353535,0 0 0 8px #3f3f3f, inset 0 0 20px rgba(0,0,0, 1), 0 8px 20px rgba(0,0,0,1);
+            transition: .5s;
+            
+        }
+        .checkbox::before{
+            content: "";
+            position: absolute;
+            width: 180px;
+            height: 96px;
+            background-image: linear-gradient( 0deg, #000, #3f3f3f);
+            top: 2px;
+            left: 2px;
+            border-radius: 50px;
+            box-shadow: inset 0 0 0 2px #232323;
+            transition: .5s;
+
+        }
+        .checkbox:checked.checkbox::before{
+            left: 118px;
+        }
+
+        .checkbox::after{
+            content: "";
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            top: 50%;
+            left: 150px;
+            transform: translate(-50%, -50%);
+            border: solid 2px rgba(0,0,0, .5);
+            border-radius: 10px;
+            transition: .5s;
+            background:rgb(255, 0, 0);
+            box-shadow: 0 0 6px 5px rgb(255, 0, 0);
+            transition: .5s;
+
+        }
+        .checkbox:checked.checkbox::after{
+            left: 265px;
+            border: solid 2px rgba(0, 110, 255, 0.5);
+            background:rgb(0, 89, 255);
+            box-shadow: 0 0 6px 5px rgb(0, 174, 255);
+            transition: .5s;
+        }
+        .checkbox:checked.checkbox{
+            
+            background-image:  linear-gradient( 0deg, rgb(0, 174, 255), rgb(14, 0, 0));
+            transition: .5s;
+        }
+    </style>
+    <title>Kokoro vs Cerebro by welcomhack</title>
+</head>
+<body>
+    <!-- Create by welcomhack -->
+    <div id="kokoro" class="corazon"></div>
+    <div id="programing" class="programing">👨🏾‍💻
+        <img src="img/coder.gif" alt="coder image">
+    </div>
+    <div class="cerebro"></div>
+
+
+    <div class="center">
+        <input id="checkbx" class="checkbox" type="checkbox" name="" id="">
+    </div>
+
+    <script>
+        let programing = document.getElementById("programing");
+        let kokoro = document.getElementById("kokoro");
+        let checkbx= document.getElementById("checkbx");
+
+        checkbx.addEventListener("change",function () {
+            if(checkbx.checked){
+                kokoro.style.display="none";
+                programing.style.display="block";
+            }
+            else{
+                kokoro.style.display="block";
+                programing.style.display="none";
+            }
+            
+        });
+    </script>
+</body>
+</html>
